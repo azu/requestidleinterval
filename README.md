@@ -1,4 +1,4 @@
-# requestinterval
+# requestinterval [![Build Status](https://travis-ci.org/azu/requestinterval.svg?branch=master)](https://travis-ci.org/azu/requestinterval)
 
 setInterval + requestIdleCallback function
 
