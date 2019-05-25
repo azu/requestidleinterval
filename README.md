@@ -10,13 +10,15 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
+Example: Do task per 1000ms
+
 ```js
 import { requestIdleInterval } from "requestidleinterval";
 requestIdleInterval(() => {
     // Do interval task
 }, {
         // interval msec
-        interval: 100,
+        interval: 1000,
         // if the enviroment is busy, the delay msec to do interval task
         timeout: 500
 });
