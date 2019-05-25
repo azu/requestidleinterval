@@ -14,7 +14,7 @@ Example: Do task per 1000ms
 
 ```js
 import { requestIdleInterval } from "requestidleinterval";
-const canel = requestIdleInterval(() => {
+const cancel = requestIdleInterval(() => {
     // Do interval task
 }, {
         // interval msec
@@ -24,7 +24,7 @@ const canel = requestIdleInterval(() => {
 });
 
 // if you want to cancel interval task
-canel(); 
+cancel(); 
 ```
 
 ## Changelog
