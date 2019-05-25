@@ -23,19 +23,37 @@
     "lib/",
     "src/"
   ],
-  "main": "lib/requestinterval.js",
-  "types": "lib/requestinterval.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  },
   "scripts": {
-    "build": "cross-env NODE_ENV=production tsc -p .",
+    "build": "pack build",
     "clean": "rimraf lib/",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepublish": "npm run --if-present build",
     "test": "mocha \"test/**/*.ts\"",
-    "watch": "tsc -p . --watch"
+    "watch": "tsc -p . --watch",
+    "start": "http-server ./",
+    "publish": "pack publish"
   },
   "husky": {
     "hooks": {
@@ -54,9 +72,15 @@
     "tabWidth": 4
   },
   "devDependencies": {
+    "@pika/pack": "^0.3.7",
+    "@pika/plugin-build-node": "^0.4.0",
+    "@pika/plugin-build-types": "^0.4.0",
+    "@pika/plugin-build-web": "^0.4.0",
+    "@pika/plugin-standard-pkg": "^0.4.0",
     "@types/mocha": "^5.2.6",
     "@types/node": "^12.0.2",
     "cross-env": "^5.2.0",
+    "http-server": "^0.11.1",
     "husky": "^2.3.0",
     "lint-staged": "^8.1.7",
     "mocha": "^6.1.4",

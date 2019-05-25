@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>requestIdleInterval</title>
+    <style>
+        .main {
+            display: flex;
+        }
+
+        .panel {
+            flex: 1;
+        }
+
+        .panel ul {
+            height: 800px;
+            overflow: scroll;
+        }
+
+        .panel li:first-child {
+            background: #eeffee;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <button id="js-heavy-task">Run Heavy Task</button>
+        </header>
+        <div class="panel">
+            <h1>setInterval</h1>
+            <ul id="js-setinterval"></ul>
+        </div>
+        <div class="panel">
+            <h1>requestIdleInterval</h1>
+            <ul id="js-requestIdleInterval"></ul>
+        </div>
+    </main>
+    <script type="module">
+        import { requestIdleInterval } from "/pkg/dist-web/index.js";
+
+        document.querySelector("#js-heavy-task").addEventListener("click", () => {
+            const array = Array.from(Array(10e5), (item) => {
+                return item;
+            });
+            array.map(item => item * 2).join("");
+        });
+        let lastSetInterval = performance.now();
+        let lastRequestIdleInterval = performance.now();
+        setInterval(() => {
+            const list = document.querySelector("#js-setinterval");
+            const li = document.createElement("li");
+            const now = performance.now();
+            li.textContent = `${Math.round(now - lastSetInterval)}ms`;
+            lastSetInterval = now;
+            list.insertBefore(li, list.firstElementChild);
+        }, 100);
+        requestIdleInterval(() => {
+            const list = document.querySelector("#js-requestIdleInterval");
+            const li = document.createElement("li");
+            const now = performance.now();
+            li.textContent = `${Math.round(now - lastRequestIdleInterval)}ms`;
+            lastRequestIdleInterval = now;
+            list.insertBefore(li, list.firstElementChild);
+        }, {
+                interval: 100,
+                timeout: 5000
+            });
+    </script>
+</body>
+
+</html>
