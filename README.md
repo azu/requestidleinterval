@@ -14,7 +14,7 @@ Example: Do task per 1000ms
 
 ```js
 import { requestIdleInterval } from "requestidleinterval";
-requestIdleInterval(() => {
+const canel = requestIdleInterval(() => {
     // Do interval task
 }, {
         // interval msec
@@ -22,6 +22,9 @@ requestIdleInterval(() => {
         // if the enviroment is busy, the delay msec to do interval task
         timeout: 500
 });
+
+// if you want to cancel interval task
+canel(); 
 ```
 
 ## Changelog
