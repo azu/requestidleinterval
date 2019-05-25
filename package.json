@@ -51,7 +51,7 @@
     "clean": "rimraf lib/ build/",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepublish": "npm run --if-present build",
-    "test": "mocha \"test/**/*.ts\"",
+    "test": "npm run build",
     "watch": "tsc -p . --watch",
     "start": "http-server ./build",
     "publish": "pack publish"
