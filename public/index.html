@@ -40,7 +40,7 @@
         </div>
     </main>
     <script type="module">
-        import { requestIdleInterval } from "/dist-web/index.js";
+        import { requestIdleInterval } from "/pkg/dist-web/index.js";
 
         document.querySelector("#js-heavy-task").addEventListener("click", () => {
             const array = Array.from(Array(10e5), (item) => {
@@ -57,7 +57,7 @@
             li.textContent = `${Math.round(now - lastSetInterval)}ms`;
             lastSetInterval = now;
             list.insertBefore(li, list.firstElementChild);
-        }, 100);
+        }, 500);
         requestIdleInterval(() => {
             const list = document.querySelector("#js-requestIdleInterval");
             const li = document.createElement("li");
