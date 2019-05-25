@@ -18,6 +18,11 @@ export const requestIdleInterval = (callback: () => void, options: requestIdleIn
     } = {
         isCanceled: false
     };
+    if(options.interval <= options.timeout){
+        throw new Error(`option.timeout should be less than option.interval.
+Recommended: option.timeout is less than half of option.interval. 
+`);
+    }
     intervalState.intervalId = setInterval(() => {
         // If it already canceled, does not request callback
         if (intervalState.isCanceled) {
