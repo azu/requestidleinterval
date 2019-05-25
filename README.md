@@ -10,7 +10,17 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
-- [ ] Write usage instructions
+```js
+import { requestIdleInterval } from "requestinterval";
+requestIdleInterval(() => {
+    // Do interval task
+}, {
+        // interval msec
+        interval: 100,
+        // if the enviroment is busy, the delay msec to do interval task
+        timeout: 500
+});
+```
 
 ## Changelog
 
