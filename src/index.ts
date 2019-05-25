@@ -1,4 +1,4 @@
-import { wrapRequestIdleCallback, warpCancelIdleCallback, RequestIdleCallbackDeadline } from "./requestIdleCallbackPonyfill";
+import { wrapRequestIdleCallback, warpCancelIdleCallback } from "./requestIdleCallbackPonyfill";
 export type requestIdleIntervalOtion = {
     interval: number;
     timeout: number;
@@ -23,11 +23,9 @@ export const requestIdleInterval = (callback: () => void, options: requestIdleIn
         if (intervalState.isCanceled) {
             return;
         }
-        intervalState.requestIdleCallbackId = wrapRequestIdleCallback((deadline: RequestIdleCallbackDeadline) => {
+        intervalState.requestIdleCallbackId = wrapRequestIdleCallback(() => {
             // Use any remaining time, or, if timed out, just run through the tasks.
-            while ((deadline.timeRemaining() > 0 || deadline.didTimeout)) {
-                callback()
-            }
+            callback();
         }, {
                 timeout: options.timeout
             });

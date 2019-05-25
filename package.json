@@ -47,12 +47,13 @@
   },
   "scripts": {
     "build": "pack build",
-    "clean": "rimraf lib/",
+    "postbuild": "cp -r public/ build/ && cp -r pkg/ build/",
+    "clean": "rimraf lib/ build/",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepublish": "npm run --if-present build",
     "test": "mocha \"test/**/*.ts\"",
     "watch": "tsc -p . --watch",
-    "start": "http-server ./",
+    "start": "http-server ./build",
     "publish": "pack publish"
   },
   "husky": {
