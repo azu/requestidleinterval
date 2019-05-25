@@ -1,5 +1,5 @@
 {
-  "name": "requestinterval",
+  "name": "requestidleinterval",
   "version": "1.0.0",
   "description": "setInterval + requestIdleCallback function",
   "keywords": [
@@ -8,13 +8,13 @@
     "interval",
     "requestIdleCallback"
   ],
-  "homepage": "https://github.com/azu/requestinterval",
+  "homepage": "https://github.com/azu/requestidleinterval",
   "bugs": {
-    "url": "https://github.com/azu/requestinterval/issues"
+    "url": "https://github.com/azu/requestidleinterval/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/requestinterval.git"
+    "url": "https://github.com/azu/requestidleinterval.git"
   },
   "license": "MIT",
   "author": "azu",

@@ -1,4 +1,4 @@
-# requestinterval [![Build Status](https://travis-ci.org/azu/requestinterval.svg?branch=master)](https://travis-ci.org/azu/requestinterval)
+# requestidleinterval [![Build Status](https://travis-ci.org/azu/requestidleinterval.svg?branch=master)](https://travis-ci.org/azu/requestidleinterval)
 
 setInterval + requestIdleCallback function
 
@@ -6,12 +6,12 @@ setInterval + requestIdleCallback function
 
 Install with [npm](https://www.npmjs.com/):
 
-    npm install requestinterval
+    npm install requestidleinterval
 
 ## Usage
 
 ```js
-import { requestIdleInterval } from "requestinterval";
+import { requestIdleInterval } from "requestidleinterval";
 requestIdleInterval(() => {
     // Do interval task
 }, {
@@ -24,7 +24,7 @@ requestIdleInterval(() => {
 
 ## Changelog
 
-See [Releases page](https://github.com/azu/requestinterval/releases).
+See [Releases page](https://github.com/azu/requestidleinterval/releases).
 
 ## Running tests
 
@@ -36,7 +36,7 @@ Install devDependencies and Run `npm test`:
 
 Pull requests and stars are always welcome.
 
-For bugs and feature requests, [please create an issue](https://github.com/azu/requestinterval/issues).
+For bugs and feature requests, [please create an issue](https://github.com/azu/requestidleinterval/issues).
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
